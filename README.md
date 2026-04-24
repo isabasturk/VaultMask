@@ -34,6 +34,10 @@ The project strictly follows the **Dependency Rule** of Clean Architecture to en
 
 ## 🚀 Quick Start / User Manual (Kullanım Kılavuzu)
 
+> [!CAUTION]
+> **DO NOT USE ON PRODUCTION DATABASES!**
+> VaultMask is designed to modify and anonymize data **in-place**. Running this tool on a live, production database will permanently overwrite genuine customer data with fake equivalents. **ALWAYS** run this tool on a copy, clone, or staging version of your database.
+
 ### Prerequisites
 - [.NET 10.0 SDK](https://dotnet.microsoft.com/download)
 - SQL Server Database (Local or Remote)
@@ -76,6 +80,10 @@ VaultMask.Cli.exe activate XXXX-YYYY-ZZZZ
 ---
 
 ## 🇹🇷 Türkçe Açıklama
+
+> [!CAUTION]
+> **CANLI VERİTABANINDA (PRODUCTION) KULLANMAYIN!**
+> VaultMask verileri **doğrudan hedefin (tablonun) üzerinde** değiştirir ve anonimleştirir. Bu aracı canlı müşteri verilerinizin olduğu sunucuda çalıştırırsanız, tüm gerçek verileriniz kalıcı olarak sahte verilerle değişecektir! **HER ZAMAN** veritabanınızın bir yedeğini alın veya bu aracı staging/test sunucusuna kurduğunuz bir kopyanın üzerinde çalıştırın.
 
 VaultMask, SQL Server veritabanlarınızdaki Kişisel Verileri (KVKK/GDPR uyumlu şekilde) güvenle maskelemek (anonimleştirmek) için geliştirilmiş, kurumsal standartlarda bir .NET 10 CLI (Komut Satırı) aracıdır.
 

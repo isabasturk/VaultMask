@@ -15,47 +15,14 @@ using System.Globalization;
 // 1. Culture Setup (Auto-detection)
 // CultureInfo.CurrentUICulture is automatically picked up by ResourceManager
 
-// Initialize License Manager early
-ILicenseManager licenseManager = new LicenseManager();
-
-// Check for activation command
-if (args.Length > 0 && args[0].Equals("activate", StringComparison.OrdinalIgnoreCase))
-{
-    if (args.Length < 2)
-    {
-        AnsiConsole.MarkupLine(Messages.ActivationErrorMissingKey);
-        return;
-    }
-
-    try
-    {
-        licenseManager.Activate(args[1]);
-        AnsiConsole.MarkupLine(Messages.ActivationSuccess);
-    }
-    catch (Exception ex)
-    {
-        AnsiConsole.MarkupLine($"{Messages.ActivationErrorPrefix}{ex.Message}");
-    }
-    return;
-}
-
 // 1. ASCII Art Logo
 AnsiConsole.Write(
     new FigletText(Messages.AppTitle)
         .Centered()
         .Color(Color.Cyan1));
 
-var isPremium = licenseManager.IsPremium();
-var versionTag = isPremium ? Messages.PremiumEdition : Messages.FreeEdition;
-AnsiConsole.MarkupLine($"{new string(' ', Math.Max(0, (Console.WindowWidth - 60) / 2))}[bold cyan]{Messages.AppSubtitle}[/] - {versionTag}");
+AnsiConsole.MarkupLine($"{new string(' ', Math.Max(0, (Console.WindowWidth - 60) / 2))}[bold cyan]{Messages.AppSubtitle}[/]");
 AnsiConsole.WriteLine();
-
-if (!isPremium)
-{
-    AnsiConsole.Write(new Panel(Messages.FreeTierWarning)
-        .BorderColor(Color.Yellow)
-        .Expand());
-}
 
 try
 {
@@ -82,7 +49,7 @@ try
 
     // Initialize Layers
     IDatabaseRepository repository = new SqlServerRepository(connectionString);
-    IMaskingService maskingService = new MaskingService(repository, licenseManager);
+    IMaskingService maskingService = new MaskingService(repository);
 
     // 3. Discovery & Table Selection
     IEnumerable<TableInfo> tables = await AnsiConsole.Status()
@@ -127,42 +94,27 @@ try
 
         // Interactive Column Selection for this Table
         List<ColumnInfo> selectedColsForTable;
-        while (true)
+        
+        var columnPrompt = new MultiSelectionPrompt<ColumnInfo>()
+            .Title(Messages.GetString("SelectColumnsTitle", $"{table.Schema}.{table.Name}"))
+            .InstructionsText(Messages.SelectInstructions)
+            .PageSize(10)
+            .UseConverter(c => 
+            {
+                var suggestion = HeuristicMapper.Suggest(c.Name);
+                return $"{c.Name} [grey]({c.DataType})[/]";
+            });
+
+        foreach (var col in columns.Where(c => !c.IsPrimaryKey))
         {
-            var columnPrompt = new MultiSelectionPrompt<ColumnInfo>()
-                .Title(Messages.GetString("SelectColumnsTitle", $"{table.Schema}.{table.Name}"))
-                .InstructionsText(Messages.SelectInstructions)
-                .PageSize(10)
-                .UseConverter(c => 
-                {
-                    var suggestion = HeuristicMapper.Suggest(c.Name);
-                    var premiumTag = (!isPremium && suggestion == MaskingType.TCKimlik) ? Messages.PremiumFeatureTag : "";
-                    return $"{c.Name} [grey]({c.DataType})[/]{premiumTag}";
-                });
-
-            foreach (var col in columns.Where(c => !c.IsPrimaryKey))
+            var item = columnPrompt.AddChoice(col);
+            if (HeuristicMapper.Suggest(col.Name).HasValue)
             {
-                var item = columnPrompt.AddChoice(col);
-                if (HeuristicMapper.Suggest(col.Name).HasValue)
-                {
-                    item.Select();
-                }
+                item.Select();
             }
-
-            selectedColsForTable = AnsiConsole.Prompt(columnPrompt);
-
-            // Manual Validation for Premium Features
-            if (!isPremium)
-            {
-                var hasPremiumCol = selectedColsForTable.Any(c => HeuristicMapper.Suggest(c.Name) == MaskingType.TCKimlik);
-                if (hasPremiumCol)
-                {
-                     AnsiConsole.MarkupLine(Messages.ErrorPremiumModuleRequired);
-                     continue; // Re-prompt
-                }
-            }
-            break; // Valid selection
         }
+
+        selectedColsForTable = AnsiConsole.Prompt(columnPrompt);
 
         if (selectedColsForTable.Count > 0)
         {
@@ -255,7 +207,7 @@ try
                     task.Value = 100;
                     task.StopTask();
                 }
-                catch (InvalidOperationException ex) when (ex.Message.Contains("Premium"))
+                catch (Exception ex)
                 {
                     task.Description = $"[red]HATA:[/] {table.Name}";
                     task.StopTask();

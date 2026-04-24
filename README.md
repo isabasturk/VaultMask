@@ -14,10 +14,9 @@ VaultMask is an enterprise-grade Command Line Interface (CLI) tool designed to s
 
 - **Blazing Fast In-Place Masking:** Updates records directly in the SQL database using asynchronous chunks, completely eliminating RAM overload and OutOfMemory exceptions.
 - **Smart Heuristic Mapping:** Automatically detects columns containing sensitive data like `Name`, `Surname`, `Email`, `Address`, `Phone`, `CompanyName` and flags them for relevant algorithmic masking.
-- **T.C. Kimlik Algorithm (Premium):** Cryptographically generates structurally valid, Modulus 10-compliant Turkish National ID numbers.
+- **T.C. Kimlik Algorithm:** Cryptographically generates structurally valid, Modulus 10-compliant Turkish National ID numbers.
 - **Flawless UX & Memory:** Remembers your last successful connection string and supports dynamic interactive validation loops using `Spectre.Console`.
 - **Multi-Language (i18n):** Automatically translates the CLI environment to Turkish or English based on the system locale.
-- **Freemium Constraints:** Built-in license engine allowing up to 100 rows per table to be masked for free, with an upgrade path for unlimited enterprise usage.
 
 ---
 
@@ -70,12 +69,6 @@ Once built/published, execute the CLI:
 2. **Table Selection:** Use the **Spacebar** to select which tables you want to anonymize, and press **Enter** to confirm.
 3. **Column Validation:** For each table, verify the intelligently proposed masking columns.
 4. **Execution:** Review the summary and watch the progress bar as your data is safely anonymized chunk by chunk.
-
-### Activating Premium
-To unlock row limitations and the T.C. Kimlik generation module, activate your product key via CLI:
-```bash
-VaultMask.Cli.exe activate XXXX-YYYY-ZZZZ
-```
 
 ---
 

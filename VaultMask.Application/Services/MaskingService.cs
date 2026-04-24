@@ -10,7 +10,7 @@ namespace VaultMask.Application.Services;
 /// Core masking service implementation. 
 /// Orchestrates data streaming, fake data generation, and batch updates.
 /// </summary>
-public sealed class MaskingService(IDatabaseRepository repository, ILicenseManager licenseManager) : IMaskingService
+public sealed class MaskingService(IDatabaseRepository repository) : IMaskingService
 {
     private readonly Faker _faker = new("tr"); // Default to Turkish context for localized strings
 
@@ -21,15 +21,8 @@ public sealed class MaskingService(IDatabaseRepository repository, ILicenseManag
         IEnumerable<MaskingRule> rules, 
         int batchSize = 1000)
     {
-        var isPremium = licenseManager.IsPremium();
         var ruleList = rules.ToList();
         
-        // Premium check for T.C. Kimlik
-        if (!isPremium && ruleList.Any(r => r.Type == MaskingType.TCKimlik))
-        {
-            throw new InvalidOperationException("TC Kimlik modül 10 maskeleme algoritması sadece Premium sürümde mevcuttur.");
-        }
-
         var columnsToRead = ruleList.Select(r => r.ColumnName).ToList();
         
         // Ensure Primary Key is included in the read set
@@ -39,13 +32,9 @@ public sealed class MaskingService(IDatabaseRepository repository, ILicenseManag
         }
 
         var currentBatch = new List<IDictionary<string, object>>();
-        var rowCount = 0;
 
         await foreach (var row in repository.GetDataAsync(schema, tableName, columnsToRead))
         {
-            // Freemium constraint: Limit to first 100 rows per table
-            if (!isPremium && rowCount >= 100) break;
-
             // Create a new dictionary for the masked row 
             // We must preserve the Primary Key value
             var maskedRow = new Dictionary<string, object>
@@ -59,7 +48,6 @@ public sealed class MaskingService(IDatabaseRepository repository, ILicenseManag
             }
 
             currentBatch.Add(maskedRow);
-            rowCount++;
 
             if (currentBatch.Count >= batchSize)
             {

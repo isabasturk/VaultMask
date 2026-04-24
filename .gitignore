@@ -1,0 +1,19 @@
+# Antigravity Kit
+_AntigravityKit/
+
+# .NET
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.sln.docstates
+.vs/
+.idea/
+.vscode/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/

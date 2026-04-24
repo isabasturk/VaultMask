@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="0" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve"><value>VaultMask</value></data>
+  <data name="AppSubtitle" xml:space="preserve"><value>B2B Veritabanı Anonimleştirme Aracı</value></data>
+  <data name="ActivationErrorMissingKey" xml:space="preserve"><value>[red]Hata:[/] Lisans anahtarı eksik. Kullanım: [yellow]vaultmask activate XXXX-YYYY-ZZZZ[/]</value></data>
+  <data name="ActivationSuccess" xml:space="preserve"><value>[bold green]Tebrikler![/] VaultMask başarıyla aktive edildi. Artık tüm sınırlamalar kaldırıldı.</value></data>
+  <data name="ActivationErrorPrefix" xml:space="preserve"><value>[red]Aktivasyon hatası:[/] </value></data>
+  <data name="FreeEdition" xml:space="preserve"><value>[bold grey70]ÜCRETSİZ SÜRÜM[/]</value></data>
+  <data name="PremiumEdition" xml:space="preserve"><value>[bold gold1]PREMIUM SÜRÜM[/]</value></data>
+  <data name="FreeTierWarning" xml:space="preserve"><value>[yellow]Not: Ücretsiz sürüm kullanıyorsunuz. Tablo başına sadece ilk 100 satır maskelenecektir.[/]</value></data>
+  <data name="ConnStringPrompt" xml:space="preserve"><value>[yellow]Lütfen SQL Server Connection String'i girin:[/] </value></data>
+  <data name="ErrorEmptyConn" xml:space="preserve"><value>[red]Hata:[/] Bağlantı cümlesi boş olamaz.</value></data>
+  <data name="ScanningSchema" xml:space="preserve"><value>Veritabanı şeması taranıyor...</value></data>
+  <data name="SelectTablesTitle" xml:space="preserve"><value>Anonimleştirilecek [green]Tabloları[/] Seçin:</value></data>
+  <data name="MoreChoices" xml:space="preserve"><value>[grey](Daha fazla tablo için aşağı/yukarı tuşlarını kullanın)[/]</value></data>
+  <data name="SelectInstructions" xml:space="preserve"><value>[grey](Seçmek için [blue]&lt;space&gt;[/], onaylamak için [green]&lt;enter&gt;[/])[/]</value></data>
+  <data name="NoTablesSelected" xml:space="preserve"><value>[yellow]Hiçbir tablo seçilmedi. Program sonlandırılıyor.[/]</value></data>
+  <data name="ErrorNoPk" xml:space="preserve"><value>[red]Hata:[/] {0} tablosunda Primary Key bulunamadı. Bu tablo atlanıyor.</value></data>
+  <data name="SelectColumnsTitle" xml:space="preserve"><value>[blue]{0}[/] tablosundaki maskelenecek kolonları seçin:</value></data>
+  <data name="PremiumFeatureTag" xml:space="preserve"><value> [grey](Premium Özellik)[/]</value></data>
+  <data name="ErrorPremiumModuleRequired" xml:space="preserve"><value>[red]HATA: TcKimlikNo maskelemesi sadece Premium sürümde kullanılabilir. Lütfen BOŞLUK tuşu ile o seçimin işaretini kaldırıp tekrar ENTER'a basın.[/]</value></data>
+  <data name="NoMaskableColumnsFound" xml:space="preserve"><value>[yellow]Maskelenecek kolon bulunamadı (Heuristic mapping eşleşmedi).[/]</value></data>
+  <data name="ProposedMappingTitle" xml:space="preserve"><value>Önerilen Maskeleme Eşleştirmeleri</value></data>
+  <data name="ColHeaderTable" xml:space="preserve"><value>Tablo</value></data>
+  <data name="ColHeaderColumn" xml:space="preserve"><value>Kolon</value></data>
+  <data name="ColHeaderMaskType" xml:space="preserve"><value>Maskeleme Tipi</value></data>
+  <data name="SkippedNotify" xml:space="preserve"><value>[yellow]Not:[/] Bazı tablolar/kolonlar otomatik eşleşmediği için [bold]atlanacak[/].</value></data>
+  <data name="ConfirmExecution" xml:space="preserve"><value>Bu eşleştirmeleri onaylıyor musunuz ve işlemi başlatmak istiyor musunuz?</value></data>
+  <data name="ExecutionCancelled" xml:space="preserve"><value>[red]İşlem kullanıcı tarafından iptal edildi.[/]</value></data>
+  <data name="MaskingInProgress" xml:space="preserve"><value>[[{0}]].[[{1}]] maskeleniyor...</value></data>
+  <data name="StatusSuccess" xml:space="preserve"><value>BAŞARILI</value></data>
+  <data name="ProcessCompleted" xml:space="preserve"><value>[bold green]Veri anonimleştirme işlemi tamamlandı![/]</value></data>
+  <data name="AppSlogan" xml:space="preserve"><value>[grey]VaultMask - Güvenliğiniz Bizim Vizyonumuz.[/]</value></data>
+  <data name="ErrorConnFailed" xml:space="preserve"><value>[bold red]Hata:[/] Veritabanına bağlanılamadı. Lütfen sunucu adresini, yetki durumunuzu ve Connection String'i kontrol edin.</value></data>
+  <data name="ErrorCritical" xml:space="preserve"><value>[bold red]Kritik Hata:[/] İşlem sırasında beklenmedik bir sorun oluştu. Lütfen sistem yöneticinize başvurun.</value></data>
+</root>

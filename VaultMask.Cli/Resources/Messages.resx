@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="0" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve"><value>VaultMask</value></data>
+  <data name="AppSubtitle" xml:space="preserve"><value>B2B Database Anonymization Tool</value></data>
+  <data name="ActivationErrorMissingKey" xml:space="preserve"><value>[red]Error:[/] License key is missing. Usage: [yellow]vaultmask activate XXXX-YYYY-ZZZZ[/]</value></data>
+  <data name="ActivationSuccess" xml:space="preserve"><value>[bold green]Congratulations![/] VaultMask activated successfully. All limits removed.</value></data>
+  <data name="ActivationErrorPrefix" xml:space="preserve"><value>[red]Activation error:[/] </value></data>
+  <data name="FreeEdition" xml:space="preserve"><value>[bold grey70]FREE EDITION[/]</value></data>
+  <data name="PremiumEdition" xml:space="preserve"><value>[bold gold1]PREMIUM EDITION[/]</value></data>
+  <data name="FreeTierWarning" xml:space="preserve"><value>[yellow]Note: You are using the Free version. Only 100 rows per table will be masked.[/]</value></data>
+  <data name="ConnStringPrompt" xml:space="preserve"><value>[yellow]Please enter SQL Server Connection String:[/] </value></data>
+  <data name="ErrorEmptyConn" xml:space="preserve"><value>[red]Error:[/] Connection string cannot be empty.</value></data>
+  <data name="ScanningSchema" xml:space="preserve"><value>Scanning database schema...</value></data>
+  <data name="SelectTablesTitle" xml:space="preserve"><value>Select [green]Tables[/] to Anonymize:</value></data>
+  <data name="MoreChoices" xml:space="preserve"><value>[grey](Use up/down arrows for more tables)[/]</value></data>
+  <data name="SelectInstructions" xml:space="preserve"><value>[grey](Press [blue]&lt;space&gt;[/] to select, [green]&lt;enter&gt;[/] to confirm)[/]</value></data>
+  <data name="NoTablesSelected" xml:space="preserve"><value>[yellow]No tables selected. Exiting.[/]</value></data>
+  <data name="ErrorNoPk" xml:space="preserve"><value>[red]Error:[/] No Primary Key found in {0}. Skipping table.</value></data>
+  <data name="SelectColumnsTitle" xml:space="preserve"><value>Select columns to anonymize in [blue]{0}[/]:</value></data>
+  <data name="PremiumFeatureTag" xml:space="preserve"><value> [grey](Premium Feature)[/]</value></data>
+  <data name="ErrorPremiumModuleRequired" xml:space="preserve"><value>[red]ERROR: TcKimlikNo masking is only available in the Premium edition. Please re-select using SPACE and then ENTER.[/]</value></data>
+  <data name="NoMaskableColumnsFound" xml:space="preserve"><value>[yellow]No maskable columns found (Heuristic mapping match failed).[/]</value></data>
+  <data name="ProposedMappingTitle" xml:space="preserve"><value>Proposed Masking Mappings</value></data>
+  <data name="ColHeaderTable" xml:space="preserve"><value>Table</value></data>
+  <data name="ColHeaderColumn" xml:space="preserve"><value>Column</value></data>
+  <data name="ColHeaderMaskType" xml:space="preserve"><value>Masking Type</value></data>
+  <data name="SkippedNotify" xml:space="preserve"><value>[yellow]Note:[/] Some tables/columns did not match automatically and will be [bold]skipped[/].</value></data>
+  <data name="ConfirmExecution" xml:space="preserve"><value>Do you confirm these mappings and want to start the process?</value></data>
+  <data name="ExecutionCancelled" xml:space="preserve"><value>[red]Process cancelled by user.[/]</value></data>
+  <data name="MaskingInProgress" xml:space="preserve"><value>Masking [[{0}]].[[{1}]]...</value></data>
+  <data name="StatusSuccess" xml:space="preserve"><value>SUCCESS</value></data>
+  <data name="ProcessCompleted" xml:space="preserve"><value>[bold green]Data anonymization process completed![/]</value></data>
+  <data name="AppSlogan" xml:space="preserve"><value>[grey]VaultMask - Your Security is Our Vision.[/]</value></data>
+  <data name="ErrorConnFailed" xml:space="preserve"><value>[bold red]Error:[/] Could not connect to database. Please check server address, credentials, and connection string.</value></data>
+  <data name="ErrorCritical" xml:space="preserve"><value>[bold red]Critical Error:[/] An unexpected problem occurred. Please contact your system administrator.</value></data>
+</root>

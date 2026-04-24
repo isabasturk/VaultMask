@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="VaultMask.Application/VaultMask.Application.csproj" />
+  <Project Path="VaultMask.Cli/VaultMask.Cli.csproj" />
+  <Project Path="VaultMask.Domain/VaultMask.Domain.csproj" />
+  <Project Path="VaultMask.Infrastructure/VaultMask.Infrastructure.csproj" />
+</Solution>

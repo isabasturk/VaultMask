@@ -1,5 +1,6 @@
 # Antigravity Kit
 _AntigravityKit/
+.agents/
 
 # .NET
 [Bb]in/

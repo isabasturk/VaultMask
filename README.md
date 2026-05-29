@@ -47,7 +47,7 @@ Since this is a source-code repository, you need to compile the tool yourself. Y
 
 **Option A: For Developers (Direct Run)**
 ```bash
-git clone https://github.com/yourusername/vaultmask.git
+git clone https://github.com/isabasturk/vaultmask.git
 cd VaultMask
 dotnet run --project VaultMask.Cli/VaultMask.Cli.csproj -c Release
 ```
@@ -101,3 +101,5 @@ Contributions, issues, and feature requests are always welcome! Feel free to che
 
 ## 📄 License
 Distributed under the MIT License. See `LICENSE` for more information.
+
+Built by İsa Baştürk — available for freelance .NET development on Upwork
